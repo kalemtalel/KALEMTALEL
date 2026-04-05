@@ -1,0 +1,1871 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+header {
+    background-color: #ff4757;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.restaurant-section {
+    margin-bottom: 3rem;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.restaurant-header {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.restaurant-logo {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #ff4757;
+}
+
+.restaurant-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.restaurant-header p {
+    opacity: 0.9;
+}
+
+/* ==================== MENU GRID CORRIGÉ ==================== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+/* ==================== CARTES PLATS UNIFORMES ==================== */
+.plat-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+}
+
+.plat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.plat-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+}
+
+.plat-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.plat-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+.plat-description {
+    color: #636e72;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.plat-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.prix {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff4757;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-whatsapp-direct, .btn-add-to-cart {
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.btn-whatsapp-direct {
+    background-color: #25D366;
+    color: white;
+}
+
+.btn-whatsapp-direct:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+.btn-add-to-cart {
+    background-color: #ff4757;
+    color: white;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+/* ==================== CATÉGORIES SCROLLABLES CORRIGÉES ==================== */
+.categories-section {
+    background: white;
+    padding: 1rem;
+    margin: 0.5rem 1rem 1rem 1rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.categories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+.categories-header h3 {
+    font-size: 1.2rem;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+.see-all {
+    color: #ff4757;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.categories-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.8rem;
+    padding: 0.5rem 0.2rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.categories-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.categories-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.categories-scroll::-webkit-scrollbar-thumb {
+    background: #ff4757;
+    border-radius: 10px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.category-item:hover {
+    transform: translateY(-2px);
+    background-color: #f8f9fa;
+}
+
+.category-item.active {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.3);
+}
+
+.category-item.active .category-icon {
+    background: white;
+    color: #ff4757;
+}
+
+.category-item.active span {
+    color: white;
+}
+
+.category-icon {
+    width: 50px;
+    height: 50px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.category-item span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #2d3436;
+}
+
+/* ==================== RECHERCHE ==================== */
+.search-container {
+    max-width: 500px;
+    margin: 1.2rem auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    outline: none;
+    background: white;
+}
+
+#searchInput:focus {
+    border-color: #ff4757;
+    box-shadow: 0 2px 10px rgba(255,71,87,0.1);
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    right: 1rem;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestions-list.show {
+    display: block;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.suggestion-item:hover {
+    background-color: #f8f9fa;
+}
+
+.suggestion-icon {
+    width: 35px;
+    height: 35px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.suggestion-content {
+    flex: 1;
+}
+
+.suggestion-title {
+    font-weight: 600;
+    color: #2d3436;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.suggestion-subtitle {
+    font-size: 0.75rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.suggestion-price {
+    color: #ff4757;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.suggestion-badge {
+    background: #e9ecef;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.suggestion-badge.resto {
+    background: #ff4757;
+    color: white;
+}
+
+.suggestion-badge.plat {
+    background: #25D366;
+    color: white;
+}
+
+.no-result {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.no-result span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+/* ==================== STATUT OUVERTURE ==================== */
+.restaurant-status {
+    margin-left: auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.2);
+}
+
+.closed-message {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ==================== SECTION SPÉCIALE ==================== */
+.special-section {
+    margin: 2rem 1.5rem 3rem;
+    padding: 1.5rem;
+    background-color: transparent;
+}
+
+.special-header {
+    margin-bottom: 1.5rem;
+}
+
+.special-header h2 {
+    font-size: 1.8rem;
+    color: #2d3436;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.special-subtitle {
+    color: #636e72;
+    font-size: 1rem;
+}
+
+.supplements-info {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    text-align: left;
+}
+
+.supplements-text {
+    background: transparent;
+    color: #ffa502;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    border-left: 3px solid #ffa502;
+    padding-left: 0.8rem;
+    margin: 0;
+}
+
+/* ==================== MODALES UNIFIÉES ==================== */
+.escalope-options-grid,
+.makloub-options-grid,
+.pizza-options-grid,
+.pasta-options-grid,
+.ojja-options-grid,
+.anchilada-options-grid,
+.pizza-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.escalope-option-btn,
+.makloub-option-btn,
+.pizza-option-btn,
+.pasta-option-btn,
+.ojja-option-btn,
+.anchilada-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.escalope-option-btn:hover,
+.makloub-option-btn:hover,
+.pizza-option-btn:hover,
+.pasta-option-btn:hover,
+.ojja-option-btn:hover,
+.anchilada-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.escalope-option-name,
+.makloub-option-name,
+.pizza-option-name,
+.pasta-option-name,
+.ojja-option-name,
+.anchilada-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+}
+
+.escalope-option-price,
+.makloub-option-price,
+.pizza-option-price,
+.pasta-option-price,
+.ojja-option-price,
+.anchilada-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.escalope-option-btn:hover .escalope-option-name,
+.makloub-option-btn:hover .makloub-option-name,
+.pizza-option-btn:hover .pizza-option-name,
+.pasta-option-btn:hover .pasta-option-name,
+.ojja-option-btn:hover .ojja-option-name,
+.anchilada-option-btn:hover .anchilada-option-name,
+.escalope-option-btn:hover .escalope-option-price,
+.makloub-option-btn:hover .makloub-option-price,
+.pizza-option-btn:hover .pizza-option-price,
+.pasta-option-btn:hover .pasta-option-price,
+.ojja-option-btn:hover .ojja-option-price,
+.anchilada-option-btn:hover .anchilada-option-price {
+    color: white;
+}
+
+.makloub-option-ingredients,
+.pizza-option-desc,
+.pasta-option-description,
+.ojja-option-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.makloub-option-header,
+.pizza-option-header,
+.pasta-option-header,
+.ojja-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.choice-modal .modal-content {
+    max-width: 500px;
+}
+
+/* ==================== MODAL PRINCIPALE ==================== */
+.choice-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    padding: 1.2rem;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-modal {
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.choice-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.choice-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+}
+
+.choice-btn:hover {
+    border-color: #ff4757;
+    transform: translateY(-2px);
+}
+
+.choice-icon {
+    font-size: 2rem;
+}
+
+/* ==================== HIGHLIGHT OFFRE ==================== */
+.highlight-offer {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-top: 0.3rem;
+    box-shadow: 0 2px 8px rgba(255,71,87,0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,71,87,0.3); }
+    50% { transform: scale(1.02); box-shadow: 0 4px 15px rgba(255,71,87,0.5); }
+    100% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,71,87,0.3); }
+}
+
+.highlight-offer::before {
+    content: "🎁 ";
+    font-size: 0.8rem;
+}
+
+/* ==================== PANIER ==================== */
+.cart-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255,71,87,0.4);
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+.cart-floating i {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: white;
+    color: #ff4757;
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ff4757;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+    z-index: 1001;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.show {
+    right: 0;
+}
+
+.cart-header {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-limit {
+    font-size: 0.8rem;
+    background: rgba(255,255,255,0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #adb5bd;
+    padding: 2rem;
+    font-style: italic;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-bottom: 1px solid #f1f1f1;
+    gap: 0.8rem;
+}
+
+.cart-item-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f8f9fa;
+}
+
+.cart-item-img.emoji-img {
+    background: #f8f9fa !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    border-radius: 8px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 0.2rem;
+}
+
+.cart-item-resto {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: #ff4757;
+    font-size: 0.95rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cart-qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: #f8f9fa;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-qty-btn:hover {
+    background: #ff4757;
+    color: white;
+}
+
+.cart-item-remove {
+    color: #dc3545;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.cart-footer {
+    padding: 1.2rem;
+    border-top: 2px solid #f1f1f1;
+    background: white;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.total-price {
+    color: #ff4757;
+    font-size: 1.2rem;
+}
+
+.btn-whatsapp-checkout {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.btn-whatsapp-checkout:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-add-frites {
+    background: linear-gradient(135deg, #FFB347, #FF8C00);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-add-frites:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #FFA500, #FF7B00);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+/* ==================== MODAL LIMITE ==================== */
+.limit-modal {
+    display: none;
+    position: fixed;
+    z-index: 2001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.limit-modal-content {
+    background: white;
+    margin: 20% auto;
+    width: 90%;
+    max-width: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.limit-modal-header {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.limit-modal-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.limit-modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.limit-modal-footer {
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid #f1f1f1;
+}
+
+.limit-modal-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* ==================== CONTACT DIRECT ==================== */
+.contact-direct {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 15px;
+    color: white;
+}
+
+.contact-direct h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-direct p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-whatsapp-large {
+    background-color: white;
+    color: #25D366;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.btn-whatsapp-large:hover {
+    transform: scale(1.05);
+    background-color: #f8f9fa;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background-color: #2d3436;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .restaurant-header {
+        padding: 1rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .restaurant-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .restaurant-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .plat-image {
+        height: 160px;
+    }
+    
+    .special-section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .special-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .categories-section {
+        margin: 0.5rem;
+        padding: 0.8rem;
+    }
+    
+    .category-item {
+        min-width: 65px;
+    }
+    
+    .category-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+    }
+    
+    .category-item span {
+        font-size: 0.7rem;
+    }
+    
+    .cart-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .plat-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-group {
+        justify-content: stretch;
+    }
+    
+    .btn-whatsapp-direct, .btn-add-to-cart {
+        text-align: center;
+        justify-content: center;
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .category-item {
+        min-width: 55px;
+    }
+    
+    .category-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .category-item span {
+        font-size: 0.65rem;
+    }
+    
+    .plat-info h3 {
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+    
+    .choice-buttons {
+        flex-direction: column;
+    }
+    
+    .choice-btn {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .contact-direct h3 {
+        font-size: 1.3rem;
+    }
+    
+    .btn-whatsapp-large {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .baguette-size-grid,
+    .baguette-viande-grid,
+    .poulet-size-grid,
+    .poulet-accompagnement-grid {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .baguette-size-btn,
+    .baguette-viande-btn,
+    .poulet-size-btn,
+    .poulet-accompagnement-btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+/* ==================== MODAL RESTAURANT FERMÉ ==================== */
+.restaurant-closed-modal {
+    position: fixed;
+    z-index: 2002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.restaurant-closed-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.restaurant-closed-header {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.restaurant-closed-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-closed-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.restaurant-closed-body {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.restaurant-closed-body ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.restaurant-closed-body li {
+    margin: 0.5rem 0;
+    color: #ff4757;
+}
+
+.restaurant-closed-footer {
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid #f1f1f1;
+}
+
+.restaurant-closed-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.restaurant-closed-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ==================== MODAL BAGUETTE FARCIE ==================== */
+#baguetteModal .modal-content,
+#pouletModal .modal-content,
+#pastaModal .modal-content,
+#ojjaModal .modal-content,
+#anchiladaModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#baguetteModal .modal-body,
+#pouletModal .modal-body,
+#pastaModal .modal-body,
+#ojjaModal .modal-body,
+#anchiladaModal .modal-body {
+    padding: 1rem;
+}
+
+.baguette-options-grid,
+.poulet-options-grid,
+.pasta-options-grid,
+.ojja-options-grid,
+.anchilada-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.baguette-step-title,
+.poulet-step-title {
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #2d3436;
+    font-size: 0.95rem;
+}
+
+.baguette-size-grid,
+.baguette-viande-grid,
+.poulet-size-grid,
+.poulet-accompagnement-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.baguette-size-btn,
+.baguette-viande-btn,
+.poulet-size-btn,
+.poulet-accompagnement-btn {
+    flex: 1;
+    min-width: 85px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 0.7rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.baguette-size-btn:hover,
+.baguette-viande-btn:hover,
+.poulet-size-btn:hover,
+.poulet-accompagnement-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.baguette-size-btn.selected,
+.baguette-viande-btn.selected,
+.poulet-size-btn.selected,
+.poulet-accompagnement-btn.selected {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,71,87,0.3);
+}
+
+.baguette-size-name,
+.baguette-viande-name,
+.poulet-size-name,
+.poulet-accompagnement-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+}
+
+.baguette-size-price,
+.poulet-accompagnement-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 0.85rem;
+}
+
+.baguette-confirm-btn,
+.poulet-confirm-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    transition: transform 0.2s;
+}
+
+.baguette-confirm-btn:hover,
+.poulet-confirm-btn:hover {
+    transform: scale(1.02);
+}
+
+/* Tacos Modal Styles */
+.tacos-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.tacos-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tacos-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.tacos-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+}
+
+.tacos-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.tacos-option-btn:hover .tacos-option-name,
+.tacos-option-btn:hover .tacos-option-price {
+    color: white;
+}
+
+#tacosAlOstedhModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#tacosAlOstedhModal .modal-body {
+    padding: 1rem;
+}
+
+/* ==================== MODAL POULET (DIDI) ==================== */
+#pouletDidiModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#pouletDidiModal .modal-body {
+    padding: 1rem;
+}
+
+.poulet-didi-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.poulet-didi-step-title {
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #2d3436;
+    font-size: 0.95rem;
+}
+
+.poulet-didi-size-grid,
+.poulet-didi-accompagnement-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.poulet-didi-size-btn,
+.poulet-didi-accompagnement-btn {
+    flex: 1;
+    min-width: 100px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 0.8rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.poulet-didi-size-btn:hover,
+.poulet-didi-accompagnement-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.poulet-didi-size-btn.selected,
+.poulet-didi-accompagnement-btn.selected {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,71,87,0.3);
+}
+
+.poulet-didi-size-name,
+.poulet-didi-accompagnement-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.poulet-didi-accompagnement-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+.poulet-didi-confirm-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    transition: transform 0.2s;
+}
+
+.poulet-didi-confirm-btn:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+    #pouletDidiModal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .poulet-didi-size-grid,
+    .poulet-didi-accompagnement-grid {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .poulet-didi-size-btn,
+    .poulet-didi-accompagnement-btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+/* ==================== MODAL SANDWICHS (DIDI) ==================== */
+.sandwich-didi-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sandwich-didi-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    gap: 1rem;
+}
+
+.sandwich-didi-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.sandwich-didi-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+    margin-bottom: 0.2rem;
+}
+
+.sandwich-didi-option-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.sandwich-didi-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.sandwich-didi-option-btn:hover .sandwich-didi-option-name,
+.sandwich-didi-option-btn:hover .sandwich-didi-option-description,
+.sandwich-didi-option-btn:hover .sandwich-didi-option-price {
+    color: white;
+}
+
+#sandwichDidiModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#sandwichDidiModal .modal-body {
+    padding: 1rem;
+}
+
+@media (max-width: 480px) {
+    #sandwichDidiModal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .sandwich-didi-option-btn {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==================== MODAL MAKLOUB (LA CASA DE MAMA) ==================== */
+.makloub-lacasa-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.makloub-lacasa-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    gap: 1rem;
+}
+
+.makloub-lacasa-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.makloub-lacasa-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+    margin-bottom: 0.2rem;
+}
+
+.makloub-lacasa-option-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.makloub-lacasa-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.makloub-lacasa-option-btn:hover .makloub-lacasa-option-name,
+.makloub-lacasa-option-btn:hover .makloub-lacasa-option-description,
+.makloub-lacasa-option-btn:hover .makloub-lacasa-option-price {
+    color: white;
+}
+
+#makloubLaCasaModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#makloubLaCasaModal .modal-body {
+    padding: 1rem;
+}
+
+@media (max-width: 480px) {
+    #makloubLaCasaModal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .makloub-lacasa-option-btn {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==================== MODAL PASTA (LA CASA DE MAMA) ==================== */
+.pasta-lacasa-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pasta-lacasa-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    gap: 1rem;
+}
+
+.pasta-lacasa-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.pasta-lacasa-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+    margin-bottom: 0.2rem;
+}
+
+.pasta-lacasa-option-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.pasta-lacasa-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.pasta-lacasa-option-btn:hover .pasta-lacasa-option-name,
+.pasta-lacasa-option-btn:hover .pasta-lacasa-option-description,
+.pasta-lacasa-option-btn:hover .pasta-lacasa-option-price {
+    color: white;
+}
+
+#pastaLaCasaModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#pastaLaCasaModal .modal-body {
+    padding: 1rem;
+}
+
+@media (max-width: 480px) {
+    #pastaLaCasaModal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .pasta-lacasa-option-btn {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==================== MODAL PAIN CORNÉ (LA CASA DE MAMA) ==================== */
+.paincorne-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.paincorne-step-title {
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #2d3436;
+    font-size: 0.95rem;
+}
+
+.paincorne-size-grid,
+.paincorne-viande-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.paincorne-size-btn,
+.paincorne-viande-btn {
+    flex: 1;
+    min-width: 85px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 0.7rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.paincorne-size-btn:hover,
+.paincorne-viande-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.paincorne-size-btn.selected,
+.paincorne-viande-btn.selected {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,71,87,0.3);
+}
+
+.paincorne-size-name,
+.paincorne-viande-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+}
+
+.paincorne-size-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 0.85rem;
+}
+
+.paincorne-confirm-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    transition: transform 0.2s;
+}
+
+.paincorne-confirm-btn:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+    .paincorne-size-grid,
+    .paincorne-viande-grid {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .paincorne-size-btn,
+    .paincorne-viande-btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
