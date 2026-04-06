@@ -116,7 +116,7 @@ const forceClosed = {
     'resto3': false,
     'resto4': false,
     'resto5': false,
-    'resto6': false
+    'resto6': true
 };
 
 // ==================== SYSTÈME DE VÉRIFICATION DES HORAIRES ====================
