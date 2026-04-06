@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.temp
+
+# Backup files
+*.backup
+*.bak
+
+# Node (si vous utilisez npm)
+node_modules/
+package-lock.json
+
+# Environment
+.env
