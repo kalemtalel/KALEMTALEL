@@ -115,7 +115,7 @@ const forceClosed = {
     'resto2': false,
     'resto3': false,
     'resto4': false,
-    'resto5': false,
+    'resto5': true,
     'resto6': true
 };
 
