@@ -111,12 +111,12 @@ const searchData = {
 
 // ==================== FERMETURE EXCEPTIONNELLE DES RESTAURANTS ====================
 const forceClosed = {
-    'resto1': true,
+    'resto1': false,
     'resto2': false,
     'resto3': false,
     'resto4': false,
     'resto5': false,
-    'resto6': false
+    'resto6': true
 };
 
 // ==================== SYSTÈME DE VÉRIFICATION DES HORAIRES ====================
