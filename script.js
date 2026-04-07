@@ -499,8 +499,9 @@ function checkoutCart() {
     toggleCart();
 }
 
+// ==================== FONCTION GET PRODUCT IMAGE CORRIGÉE ====================
 function getProductImage(productName) {
-    // AL OSTEDH
+    // ========== AL OSTEDH ==========
     if (productName.includes('Burger Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_crispy_zu7tsq.png';
     if (productName.includes('Burger Classique')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788838/alostedh_zw5zjf.png';
     if (productName.includes('Burger Double Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_double_beef_hn1rtw.png';
@@ -511,9 +512,9 @@ function getProductImage(productName) {
     if (productName.includes('Pizza Thon / Pepperoni')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     if (productName.includes('Pizza Jambon fumé & crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
     if (productName.includes('Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152509/tacos_alostedhhh_l5qajp.png';
-    // Escalope
     if (productName.includes('Spécial escalope')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774131090/Sadwich_escalope_lahxch.png';
-    // CHICK'IN
+    
+    // ========== CHICK'IN ==========
     if (productName.includes('Frenchy Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png';
     if (productName.includes('Cheesy Burrito')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png';
     if (productName.includes('Burger Maple Sriracha')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774095344/Burger_Maple_sriracha_hcj6qu.png';
@@ -523,31 +524,69 @@ function getProductImage(productName) {
     if (productName.includes('Box The crisper')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129687/Box_the_crisper_xwx58h.png';
     if (productName.includes('Box Tex-Mex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129851/Box_tex_mex_dkiwne.png';
     if (productName.includes('OG sub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129969/OG_SUB_d08hft.png';
-    // King Street
-    if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
-    if (productName.includes('Makloub') && !productName.includes('Mahboul') && !productName.includes('La Casa')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
-    if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
-    // La Casa De Mama
+    
+    // ========== ZAKIA (AVANT La Casa pour éviter les conflits) ==========
+    // Pasta ZAKIA - correspondance exacte
+    if (productName === 'Pasta escalope' || 
+        productName === 'Pasta Merguez' || 
+        productName === 'Pasta fruit de mer') {
+        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
+    }
+    
+    // Ojja ZAKIA
+if (productName === 'Ojja escalope' || 
+    productName === 'Ojja merguez' || 
+    productName === 'Ojja Merguez' || 
+    productName === 'Ojja fruit de mer') {
+    return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
+
+    }
+    
+    // Poulet ZAKIA
+    if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier') || 
+        productName.includes('Tastira') || productName.includes('Makrouna') || productName.includes('Loubia')) {
+        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
+    }
+    
+    // ========== LA CASA DE MAMA (AVANT King Street) ==========
     if (productName.includes('4 Feux')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png';
-    if (productName.includes('Pizza Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
+    if (productName.includes('Pizza Thon') && productName.includes('La Casa')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
     if (productName.includes('Pizza Exacatory')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
     if (productName.includes('Pizza Mitro')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png';
     if (productName.includes('Pizza 4 Fromage')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png';
     if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png';
     if (productName.includes('Anchilada')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png';
-    if (productName.includes('Makloub') && productName.includes('La Casa')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png';
-    if (productName.includes('Pasta') && productName.includes('Alfredo')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775303674/pasta_lacasademama_fsbqh1.png';
+    
+    // Pasta La Casa De Mama (après ZAKIA)
+    if (productName.includes('Pasta') && productName.includes('Alfredo')) {
+        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775303674/pasta_lacasademama_fsbqh1.png';
+    }
+    
+    // MAKLOUB LA CASA - vérifié AVANT King Street
+    if (productName.includes('Makloub') && (productName.includes('Escalope') || productName.includes('Shawarma') || 
+        productName.includes('Cordon') || productName.includes('Thon') || productName.includes('Jambon'))) {
+        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png';
+    }
+    
     if (productName.includes('Pain Corné')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775306409/pain_corn%C3%A9_td0mhp.png';
-    // ZAKIA
-    if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier') || productName.includes('Tastira') || productName.includes('Makrouna') || productName.includes('Loubia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
-    if (productName.includes('Pasta') && productName.includes('ZAKIA')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
-    if (productName.includes('Ojja') || productName.includes('oeuf')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
-    if (productName.includes('ZAKIA') || productName.includes('Zakia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774900511/zakia_logo_whzfbt.png';
-    // DIDI
+    
+    // ========== KING STREET (après La Casa) ==========
+    if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
+    if (productName.includes('Makloub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
+    if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
+    
+    // ========== DIDI ==========
     if (productName.includes('Poulet sec')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
-    if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
-    if (productName.includes('Sandwich thon frit') || productName.includes('Sandwich kafteji frit') || productName.includes('Sandwich poulet frit') || productName.includes('Sandwich thon') || productName.includes('Sandwich kafteji') || productName.includes('Sandwich poulet')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
+    if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier')) {
+        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
+    }
+    if (productName.includes('Sandwich thon frit') || productName.includes('Sandwich kafteji frit') || 
+        productName.includes('Sandwich poulet frit') || productName.includes('Sandwich thon') || 
+        productName.includes('Sandwich kafteji') || productName.includes('Sandwich poulet')) {
+        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
+    }
     if (productName.includes('Shan Tounsi')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152532/shan_tounsi_didi_sohp3n.png';
+    
     return '';
 }
 
