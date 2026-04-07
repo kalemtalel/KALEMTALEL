@@ -111,7 +111,7 @@ const searchData = {
 
 // ==================== FERMETURE EXCEPTIONNELLE DES RESTAURANTS ====================
 const forceClosed = {
-    'resto1': false,
+    'resto1': true,
     'resto2': false,
     'resto3': false,
     'resto4': false,
