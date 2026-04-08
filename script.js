@@ -434,7 +434,6 @@ function updateCartDisplay() {
     
     let itemsHtml = cart.map(item => {
         const isEmoji = item.isEmoji || item.image === '🍟';
-        // CORRECTION ICI : utilisation directe de item.image au lieu de getProductImage
         const imageContent = isEmoji ? 
             `<div class="cart-item-img emoji-img" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🍟</div>` :
             `<div class="cart-item-img" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>`;
@@ -532,6 +531,9 @@ function getProductImage(productName) {
     if (productName.includes('Box The crisper')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129687/Box_the_crisper_xwx58h.png';
     if (productName.includes('Box Tex-Mex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129851/Box_tex_mex_dkiwne.png';
     if (productName.includes('OG sub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129969/OG_SUB_d08hft.png';
+    if (productName.includes('Crispy Coleslaw')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775654542/Crispy_Coleslaw_chickin_d4kmmc.png';
+    if (productName.includes('Crispy César')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775655787/Crispy_c%C3%A9sar_chickin_nhj1wh.png';
+    if (productName.includes('Super Power Bowl')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775655800/Super_power_bowl_chickin_f7kq2r.png';
     
     // ========== ZAKIA ==========
     if (productName === 'Pasta escalope' || productName === 'Pasta Merguez' || productName === 'Pasta fruit de mer') {
