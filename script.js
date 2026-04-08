@@ -507,7 +507,7 @@ function getProductImage(productName) {
     if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
     if (productName.includes('Makloub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
     if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
-    if (productName.includes('Pizza Demi Fromage / Demi Crème')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
+    if (productName.includes('Pizza Demi Fromage / Demi Poulet à la Crème')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
     
     // ========== AL OSTEDH ==========
     if (productName.includes('Burger Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_crispy_zu7tsq.png';
@@ -967,7 +967,7 @@ function selectPizzaChtarChtarOption(size, price, pizzaSize, description) {
     closePizzaChtarChtarModal();
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
     const restoName = 'King Street';
-    const fullProductName = `Pizza Demi Fromage / Demi Crème ${size} (${pizzaSize})`;
+    const fullProductName = `Pizza Demi Fromage / Demi Poulet à la Crème ${size} (${pizzaSize})`;
     if (currentPizzaChtarChtarMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
