@@ -434,9 +434,10 @@ function updateCartDisplay() {
     
     let itemsHtml = cart.map(item => {
         const isEmoji = item.isEmoji || item.image === '🍟';
+        // CORRECTION ICI : utilisation directe de item.image au lieu de getProductImage
         const imageContent = isEmoji ? 
             `<div class="cart-item-img emoji-img" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🍟</div>` :
-            `<div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>`;
+            `<div class="cart-item-img" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>`;
         
         const restoHtml = item.name === "🍟 Frites supplémentaires" ? 
             '' : 
@@ -501,6 +502,13 @@ function checkoutCart() {
 
 // ==================== FONCTION GET PRODUCT IMAGE CORRIGÉE ====================
 function getProductImage(productName) {
+    // ========== KING STREET (spécifique avant générique) ==========
+    if (productName.includes('Tacos Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775603631/tacos_mahboul_nw8shd.png';
+    if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
+    if (productName.includes('Makloub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
+    if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
+    if (productName.includes('Pizza Demi Fromage / Demi Crème')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
+    
     // ========== AL OSTEDH ==========
     if (productName.includes('Burger Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_crispy_zu7tsq.png';
     if (productName.includes('Burger Classique')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788838/alostedh_zw5zjf.png';
@@ -525,30 +533,19 @@ function getProductImage(productName) {
     if (productName.includes('Box Tex-Mex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129851/Box_tex_mex_dkiwne.png';
     if (productName.includes('OG sub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129969/OG_SUB_d08hft.png';
     
-    // ========== ZAKIA (AVANT La Casa pour éviter les conflits) ==========
-    // Pasta ZAKIA - correspondance exacte
-    if (productName === 'Pasta escalope' || 
-        productName === 'Pasta Merguez' || 
-        productName === 'Pasta fruit de mer') {
+    // ========== ZAKIA ==========
+    if (productName === 'Pasta escalope' || productName === 'Pasta Merguez' || productName === 'Pasta fruit de mer') {
         return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
     }
-    
-    // Ojja ZAKIA
-if (productName === 'Ojja escalope' || 
-    productName === 'Ojja merguez' || 
-    productName === 'Ojja Merguez' || 
-    productName === 'Ojja fruit de mer') {
-    return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
-
+    if (productName === 'Ojja escalope' || productName === 'Ojja merguez' || productName === 'Ojja Merguez' || productName === 'Ojja fruit de mer') {
+        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
     }
-    
-    // Poulet ZAKIA
     if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier') || 
         productName.includes('Tastira') || productName.includes('Makrouna') || productName.includes('Loubia')) {
         return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
     }
     
-    // ========== LA CASA DE MAMA (AVANT King Street) ==========
+    // ========== LA CASA DE MAMA ==========
     if (productName.includes('4 Feux')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png';
     if (productName.includes('Pizza Thon') && productName.includes('La Casa')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
     if (productName.includes('Pizza Exacatory')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
@@ -556,24 +553,11 @@ if (productName === 'Ojja escalope' ||
     if (productName.includes('Pizza 4 Fromage')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png';
     if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png';
     if (productName.includes('Anchilada')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png';
-    
-    // Pasta La Casa De Mama (après ZAKIA)
-    if (productName.includes('Pasta') && productName.includes('Alfredo')) {
-        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775303674/pasta_lacasademama_fsbqh1.png';
-    }
-    
-    // MAKLOUB LA CASA - vérifié AVANT King Street
-    if (productName.includes('Makloub') && (productName.includes('Escalope') || productName.includes('Shawarma') || 
-        productName.includes('Cordon') || productName.includes('Thon') || productName.includes('Jambon'))) {
+    if (productName.includes('Pasta') && productName.includes('Alfredo')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775303674/pasta_lacasademama_fsbqh1.png';
+    if (productName.includes('Makloub') && (productName.includes('Escalope') || productName.includes('Shawarma') || productName.includes('Cordon') || productName.includes('Thon') || productName.includes('Jambon'))) {
         return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png';
     }
-    
     if (productName.includes('Pain Corné')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775306409/pain_corn%C3%A9_td0mhp.png';
-    
-    // ========== KING STREET (après La Casa) ==========
-    if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
-    if (productName.includes('Makloub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
-    if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
     
     // ========== DIDI ==========
     if (productName.includes('Poulet sec')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
@@ -940,6 +924,55 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// Pizza Demi Fromage / Demi Crème Modal (King Street)
+const pizzaChtarChtarOptionsList = [
+    { name: "Moy", price: "16", size: "Moyenne", description: "Demi fromage et demi à la crème, sauce blanche, poulet à la crème, 4 fromages, mozzarella, cheddar" },
+    { name: "Maxi", price: "21", size: "Maxi", description: "Demi fromage et demi à la crème, sauce blanche, poulet à la crème, 4 fromages, mozzarella, cheddar" },
+    { name: "Family", price: "28", size: "Family", description: "Demi fromage et demi à la crème, sauce blanche, poulet à la crème, 4 fromages, mozzarella, cheddar" }
+];
+
+let currentPizzaChtarChtarMode = null;
+
+function showPizzaChtarChtarModal(mode) {
+    currentPizzaChtarChtarMode = mode;
+    const modal = document.getElementById('pizzaChtarChtarModal');
+    const optionsContainer = document.getElementById('pizzaChtarChtarOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = pizzaChtarChtarOptionsList.map(opt => `
+        <div class="pizza-option-btn" onclick="selectPizzaChtarChtarOption('${opt.name}', '${opt.price}', '${opt.size}', '${opt.description.replace(/'/g, "\\'")}')">
+            <div style="flex: 1;">
+                <div class="pizza-option-name">${opt.name} (${opt.size})</div>
+                <div class="pizza-option-desc">${opt.description}</div>
+            </div>
+            <div class="pizza-option-price">${opt.price} DT</div>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePizzaChtarChtarModal() {
+    const modal = document.getElementById('pizzaChtarChtarModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectPizzaChtarChtarOption(size, price, pizzaSize, description) {
+    closePizzaChtarChtarModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
+    const restoName = 'King Street';
+    const fullProductName = `Pizza Demi Fromage / Demi Crème ${size} (${pizzaSize})`;
+    if (currentPizzaChtarChtarMode === 'cart') {
+        addToCart(fullProductName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
