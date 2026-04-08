@@ -452,6 +452,34 @@
                         </div>
                     </div>
                 </div>
+                <div class="plat-card" data-category="pizza">
+                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png'); background-color: #f0f0f0; background-position: center 70%; background-size: cover;"></div>
+                    <div class="plat-info">
+                        <h3>Pizza Demi Fromage / Demi Crème</h3>
+                        <p class="plat-description">Demi fromage et demi à la crème • Sauce blanche, poulet à la crème, 4 fromages, mozzarella, cheddar</p>
+                        <div class="plat-footer">
+                            <span class="prix">À partir de 16 DT</span>
+                            <div class="btn-group">
+                                <button class="btn-whatsapp-direct" onclick="showPizzaChtarChtarModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                <button class="btn-add-to-cart" onclick="showPizzaChtarChtarModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plat-card" data-category="tacos">
+                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775603631/tacos_mahboul_nw8shd.png'); background-color: #f0f0f0; background-position: center 70%; background-size: cover;"></div>
+                    <div class="plat-info">
+                        <h3>Tacos Mahboul</h3>
+                        <p class="plat-description">Président, sauce à l'ail, poulet à la crème, mozzarella, cheddar, gruyère</p>
+                        <div class="plat-footer">
+                            <span class="prix">15 DT</span>
+                            <div class="btn-group">
+                                <button class="btn-whatsapp-direct" onclick="commanderDirect('Tacos Mahboul', '15 DT', 'King Street')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                <button class="btn-add-to-cart" onclick="addToCart('Tacos Mahboul', '15 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775603631/tacos_mahboul_nw8shd.png', 'King Street', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -911,6 +939,13 @@
             <div class="modal-body"><p>Veuillez sélectionner votre sandwich :</p><div id="sandwichDidiOptions" class="sandwich-didi-options-grid"></div></div>
         </div>
     </div>
+    <!--  pizza Demi fromage et demi à la crème Modal (King Street) -->
+<div id="pizzaChtarChtarModal" class="choice-modal">
+    <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header"><h3>Choisissez votre taille</h3><span class="close-modal" onclick="closePizzaChtarChtarModal()">&times;</span></div>
+        <div class="modal-body"><p>Veuillez sélectionner la taille de votre Pizza demi demi  :</p><div id="pizzaChtarChtarOptions" class="pizza-options-grid"></div></div>
+    </div>
+</div>
 
     <div id="limitModal" class="limit-modal">
         <div class="limit-modal-content">
