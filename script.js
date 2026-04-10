@@ -98,7 +98,11 @@ function disableRestaurantButtons(restaurant) {
 }
 
 function commanderDirect(productName, productPrice, restoName) {
-    let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
+    let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
     window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
 }
 
@@ -483,10 +487,14 @@ function checkoutCart() {
         return;
     }
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     let totalFormatted = total.toFixed(1).replace('.', ',') + ' DT';
     
-    let message = "Ma commande :\n";
+    let message = `${salutation}, je souhaite commander.\n`;
     cart.forEach(item => {
         message += `• ${item.name} (${item.resto}) x${item.quantity} - ${item.priceDisplay}\n`;
     });
@@ -499,7 +507,7 @@ function checkoutCart() {
     toggleCart();
 }
 
-// ==================== FONCTION GET PRODUCT IMAGE CORRIGÉE ====================
+// ==================== FONCTION GET PRODUCT IMAGE ====================
 function getProductImage(productName) {
     // ========== KING STREET (spécifique avant générique) ==========
     if (productName.includes('Tacos Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775603631/tacos_mahboul_nw8shd.png';
@@ -615,10 +623,14 @@ function selectChoice(choice) {
     let price = currentProduct.price;
     let resto = currentProduct.resto;
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentProduct.mode === 'cart') {
         addToCart(productName, price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', resto);
     } else {
-        let message = `Ma commande :\n• ${productName} (${resto}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${resto}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -662,11 +674,15 @@ function selectPizza4ChoixOption(productName, price, size, description) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
     const restoName = 'AL OSTEDH';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPizza4ChoixMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -728,11 +744,15 @@ function selectPizzaThonPepperoniFinal(productName, price, size, description) {
     const restoName = 'AL OSTEDH';
     const finalProductName = `${productName} (${currentThonPepperoniGarniture})`;
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentThonPepperoniMode === 'cart') {
         addToCart(finalProductName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${finalProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${finalProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -776,11 +796,15 @@ function selectPizzaJambonCrispyOption(productName, price, size, description) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
     const restoName = 'AL OSTEDH';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPizzaJambonCrispyMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -823,10 +847,15 @@ function selectEscalopeOption(productName, productPrice) {
     closeEscalopeModal();
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774131090/Sadwich_escalope_lahxch.png';
     const restoName = 'AL OSTEDH';
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentEscalopeMode === 'cart') {
         addToCart(productName, productPrice, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -874,10 +903,15 @@ function selectMakloubOption(productName, productPrice, ingredients) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
     const restoName = 'King Street';
     const fullProductName = `Makloub ${productName}`;
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentMakloubMode === 'cart') {
         addToCart(fullProductName, productPrice, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -922,10 +956,15 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
     const restoName = 'King Street';
     const fullProductName = `Pizza Triplex (Double Pâtes) ${size} (${pizzaSize})`;
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPizzaTriplexMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -970,11 +1009,16 @@ function selectPizzaChtarChtarOption(size, price, pizzaSize, description) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
     const restoName = 'King Street';
     const fullProductName = `Pizza Demi Fromage / Demi Poulet à la Crème ${size} (${pizzaSize})`;
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPizzaChtarChtarMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1020,10 +1064,15 @@ function selectPizzaThonOption(size, price, pizzaSize, description) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
     const restoName = 'La Casa De Mama';
     const fullProductName = `Pizza Thon ${size} (${pizzaSize})`;
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPizzaThonMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1068,10 +1117,15 @@ function selectPizzaExacatoryOption(size, price, pizzaSize, description) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
     const restoName = 'La Casa De Mama';
     const fullProductName = `Pizza Exacatory ${size} (${pizzaSize})`;
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPizzaExacatoryMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1149,13 +1203,17 @@ function confirmerBaguette() {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png';
     const restoName = 'La Casa De Mama';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     closeBaguetteModal();
     
     if (currentBaguetteMode === 'cart') {
         addToCart(productName, productPrice, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice} DT\nTotal (hors livraison) : ${productPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${productPrice} DT\nTotal (hors livraison) : ${productPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1281,13 +1339,17 @@ function confirmerPoulet() {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
     const restoName = 'ZAKIA';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     closePouletModal();
     
     if (currentPouletMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1338,11 +1400,15 @@ function selectPastaOption(productName, price) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
     const restoName = 'ZAKIA';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPastaMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1384,11 +1450,15 @@ function selectOjjaOption(productName, price) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
     const restoName = 'ZAKIA';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentOjjaMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1430,11 +1500,15 @@ function selectAnchiladaOption(productName, price) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png';
     const restoName = 'La Casa De Mama';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentAnchiladaMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1481,11 +1555,15 @@ function selectPizzaQuatreFromagesOption(size, price, pizzaSize) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png';
     const restoName = 'La Casa De Mama';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPizzaQuatreFromagesMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1527,11 +1605,15 @@ function selectTacosAlOstedhOption(productName, price) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152509/tacos_alostedhhh_l5qajp.png';
     const restoName = 'AL OSTEDH';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentTacosAlOstedhMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1677,13 +1759,17 @@ function confirmerPouletDidi() {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
     const restoName = 'DIDI';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     closePouletDidiModal();
     
     if (currentPouletDidiMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1737,11 +1823,15 @@ function selectSandwichDidiOption(productName, price, description) {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
     const restoName = 'DIDI';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentSandwichDidiMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1789,11 +1879,15 @@ function selectMakloubLaCasaOption(productName, price) {
     const restoName = 'La Casa De Mama';
     const fullProductName = `Makloub ${productName}`;
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentMakloubLaCasaMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1839,11 +1933,15 @@ function selectPastaLaCasaOption(productName, price, description) {
     const restoName = 'La Casa De Mama';
     const fullProductName = `Pasta ${productName}`;
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     if (currentPastaLaCasaMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1921,13 +2019,17 @@ function confirmerPainCorne() {
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775306409/pain_corn%C3%A9_td0mhp.png';
     const restoName = 'La Casa De Mama';
     
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    
     closePainCorneModal();
     
     if (currentPainCorneMode === 'cart') {
         addToCart(productName, productPrice, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice} DT\nTotal (hors livraison) : ${productPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${productPrice} DT\nTotal (hors livraison) : ${productPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1964,3 +2066,132 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// ==================== COMPTEUR DE VISITES ADMIN ====================
+
+// Récupérer ou initialiser le compteur
+let visitCount = localStorage.getItem('adminVisitCount') || 0;
+let firstVisit = localStorage.getItem('adminFirstVisit') || new Date().toISOString();
+
+// Fonction pour compter la visite
+function countAdminVisit() {
+    let newCount = parseInt(visitCount) + 1;
+    localStorage.setItem('adminVisitCount', newCount);
+    localStorage.setItem('adminLastVisit', new Date().toISOString());
+    visitCount = newCount;
+    
+    // Afficher dans la console (visible uniquement par toi avec F12)
+    console.log("%c═══════════════════════════════════════", "color: #ff4757; font-size: 14px;");
+    console.log("%c📊 STATISTIQUES ADMIN - KALEMTALEL", "color: #ff4757; font-size: 16px; font-weight: bold;");
+    console.log("%c═══════════════════════════════════════", "color: #ff4757; font-size: 14px;");
+    console.log("%c✅ Nombre total de visites : " + newCount, "color: #25D366; font-size: 14px;");
+    console.log("%c📅 Date et heure : " + new Date().toLocaleString('fr-TN', {timeZone: 'Africa/Tunis'}), "color: #3498db; font-size: 12px;");
+    
+    // Vérifier la limite
+    if (newCount >= 10000) {
+        console.log("%c⚠️ ATTENTION ! Vous avez dépassé 10 000 visites !", "color: #ff4757; font-size: 14px; font-weight: bold;");
+        console.log("%c💡 Pensez à passer à un hébergement payant.", "color: #ffa502; font-size: 12px;");
+    } else {
+        let remaining = 10000 - newCount;
+        console.log("%c📊 " + remaining + " visites restantes avant la limite de 10 000", "color: #25D366; font-size: 12px;");
+    }
+    console.log("%c═══════════════════════════════════════", "color: #ff4757; font-size: 14px;");
+}
+
+// Fonction pour afficher les stats (popup accessible par raccourci)
+function showAdminStats() {
+    let count = localStorage.getItem('adminVisitCount') || 0;
+    let last = localStorage.getItem('adminLastVisit');
+    let first = localStorage.getItem('adminFirstVisit');
+    
+    let msg = "═══════════════════════════════\n";
+    msg += "📊 STATISTIQUES KALEMTALEL\n";
+    msg += "═══════════════════════════════\n\n";
+    msg += `✅ Nombre total de visites : ${count}\n`;
+    msg += `📅 Première visite : ${new Date(first).toLocaleString('fr-TN', {timeZone: 'Africa/Tunis'})}\n`;
+    msg += `🕐 Dernière visite : ${new Date(last).toLocaleString('fr-TN', {timeZone: 'Africa/Tunis'})}\n\n`;
+    
+    if (count >= 10000) {
+        msg += "⚠️ ATTENTION !\n";
+        msg += "Vous avez dépassé 10 000 visites !\n";
+        msg += "Pensez à passer à un hébergement payant.\n";
+    } else {
+        let remaining = 10000 - count;
+        let percent = (count / 10000 * 100).toFixed(1);
+        msg += `📊 Progression : ${percent}% de la limite\n`;
+        msg += `✅ ${remaining} visites restantes avant 10 000\n`;
+    }
+    msg += "\n═══════════════════════════════";
+    
+    alert(msg);
+}
+
+// Fonction pour réinitialiser le compteur (si besoin)
+function resetAdminStats() {
+    if (confirm("⚠️ ATTENTION ! Voulez-vous vraiment réinitialiser toutes les statistiques ?")) {
+        localStorage.setItem('adminVisitCount', 0);
+        localStorage.setItem('adminFirstVisit', new Date().toISOString());
+        localStorage.setItem('adminLastVisit', new Date().toISOString());
+        visitCount = 0;
+        alert("✅ Statistiques réinitialisées !");
+        console.log("%c🔄 Statistiques réinitialisées", "color: #ffa502; font-size: 12px;");
+    }
+}
+
+// Exécuter le compteur
+countAdminVisit();
+
+// ==================== RACCOURCIS CLAVIER ADMIN ====================
+
+// Ctrl + Shift + S = Afficher les stats
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.shiftKey && e.key === 'S') {
+        e.preventDefault();
+        showAdminStats();
+    }
+    
+    // Ctrl + Shift + R = Réinitialiser les stats (optionnel)
+    if (e.ctrlKey && e.shiftKey && e.key === 'R') {
+        e.preventDefault();
+        resetAdminStats();
+    }
+});
+
+// ==================== ICÔNE ADMIN DISCÈTE ====================
+
+// Créer une icône invisible (visible seulement au survol)
+let adminBtn = document.createElement('div');
+adminBtn.innerHTML = '📊';
+adminBtn.style.position = 'fixed';
+adminBtn.style.bottom = '15px';
+adminBtn.style.right = '15px';
+adminBtn.style.width = '40px';
+adminBtn.style.height = '40px';
+adminBtn.style.backgroundColor = '#ff4757';
+adminBtn.style.color = 'white';
+adminBtn.style.borderRadius = '50%';
+adminBtn.style.display = 'flex';
+adminBtn.style.alignItems = 'center';
+adminBtn.style.justifyContent = 'center';
+adminBtn.style.cursor = 'pointer';
+adminBtn.style.opacity = '0.1';
+adminBtn.style.transition = 'opacity 0.3s ease';
+adminBtn.style.zIndex = '9999';
+adminBtn.style.fontSize = '20px';
+adminBtn.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+adminBtn.title = '📊 Stats Admin (cliquez) | Ctrl+Shift+S';
+
+// Au survol, l'icône devient visible
+adminBtn.onmouseover = function() { 
+    this.style.opacity = '0.9'; 
+    this.style.transform = 'scale(1.1)';
+};
+adminBtn.onmouseout = function() { 
+    this.style.opacity = '0.1'; 
+    this.style.transform = 'scale(1)';
+};
+adminBtn.onclick = showAdminStats;
+
+document.body.appendChild(adminBtn);
+
+// Afficher un message dans la console au premier chargement
+console.log("%c🔒 Mode Admin activé - Ctrl+Shift+S pour voir les stats", "color: #25D366; font-size: 12px; font-weight: bold;");
