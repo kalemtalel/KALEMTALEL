@@ -5,7 +5,8 @@ const forceClosed = {
     'resto3': false,
     'resto4': false,
     'resto5': false,
-    'resto6': false
+    'resto6': false,
+    'resto7': false  
 };
 
 // ==================== SYSTÈME DE VÉRIFICATION DES HORAIRES ====================
@@ -100,7 +101,7 @@ function disableRestaurantButtons(restaurant) {
 function commanderDirect(productName, productPrice, restoName) {
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     let message = `${salutation}, je souhaite commander.\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
     window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
@@ -340,6 +341,7 @@ function checkCartRestaurantsStatus() {
             else if (restoName === 'La Casa De Mama') restoSection = document.getElementById('resto4');
             else if (restoName === 'ZAKIA') restoSection = document.getElementById('resto5');
             else if (restoName === 'DIDI') restoSection = document.getElementById('resto6');
+            else if (restoName === 'WALID PLUS') restoSection = document.getElementById('resto7');
             
             if (restoSection) {
                 const hoursElement = restoSection.querySelector('.restaurant-header p');
@@ -489,7 +491,7 @@ function checkoutCart() {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     let totalFormatted = total.toFixed(1).replace('.', ',') + ' DT';
@@ -580,6 +582,8 @@ function getProductImage(productName) {
         return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
     }
     if (productName.includes('Shan Tounsi')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152532/shan_tounsi_didi_sohp3n.png';
+    // ========== WALID PLUS ==========
+    if (productName.includes('Pizza Turque')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775836187/pizza_walidplus_bsigk7.png';
     
     return '';
 }
@@ -625,7 +629,7 @@ function selectChoice(choice) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentProduct.mode === 'cart') {
         addToCart(productName, price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', resto);
@@ -676,7 +680,7 @@ function selectPizza4ChoixOption(productName, price, size, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPizza4ChoixMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -746,7 +750,7 @@ function selectPizzaThonPepperoniFinal(productName, price, size, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentThonPepperoniMode === 'cart') {
         addToCart(finalProductName, price, imageUrl, restoName);
@@ -798,7 +802,7 @@ function selectPizzaJambonCrispyOption(productName, price, size, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPizzaJambonCrispyMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -850,7 +854,7 @@ function selectEscalopeOption(productName, productPrice) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentEscalopeMode === 'cart') {
         addToCart(productName, productPrice, imageUrl, restoName);
@@ -906,7 +910,7 @@ function selectMakloubOption(productName, productPrice, ingredients) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentMakloubMode === 'cart') {
         addToCart(fullProductName, productPrice, imageUrl, restoName);
@@ -959,7 +963,7 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPizzaTriplexMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
@@ -1012,7 +1016,7 @@ function selectPizzaChtarChtarOption(size, price, pizzaSize, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPizzaChtarChtarMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
@@ -1067,7 +1071,7 @@ function selectPizzaThonOption(size, price, pizzaSize, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPizzaThonMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
@@ -1120,7 +1124,7 @@ function selectPizzaExacatoryOption(size, price, pizzaSize, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPizzaExacatoryMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
@@ -1205,7 +1209,7 @@ function confirmerBaguette() {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     closeBaguetteModal();
     
@@ -1341,7 +1345,7 @@ function confirmerPoulet() {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     closePouletModal();
     
@@ -1402,7 +1406,7 @@ function selectPastaOption(productName, price) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPastaMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -1452,7 +1456,7 @@ function selectOjjaOption(productName, price) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentOjjaMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -1502,7 +1506,7 @@ function selectAnchiladaOption(productName, price) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentAnchiladaMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -1557,7 +1561,7 @@ function selectPizzaQuatreFromagesOption(size, price, pizzaSize) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPizzaQuatreFromagesMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -1607,7 +1611,7 @@ function selectTacosAlOstedhOption(productName, price) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentTacosAlOstedhMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -1761,7 +1765,7 @@ function confirmerPouletDidi() {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     closePouletDidiModal();
     
@@ -1825,7 +1829,7 @@ function selectSandwichDidiOption(productName, price, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentSandwichDidiMode === 'cart') {
         addToCart(productName, price, imageUrl, restoName);
@@ -1881,7 +1885,7 @@ function selectMakloubLaCasaOption(productName, price) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentMakloubLaCasaMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
@@ -1935,7 +1939,7 @@ function selectPastaLaCasaOption(productName, price, description) {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentPastaLaCasaMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
@@ -2021,7 +2025,7 @@ function confirmerPainCorne() {
     
     let now = getTunisiaTime();
     let currentHour = now.getHours();
-    let salutation = currentHour < 18 ? "Bonjour" : "Bonsoir";
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     closePainCorneModal();
     
@@ -2042,8 +2046,80 @@ function closePainCorneModal() {
     selectedPainCorneViande = null;
 }
 
+// ==================== PIZZA TURQUE MODAL (WALID PLUS) ====================
+const pizzaTurqueOptionsList = [
+    { name: "Mini", price: "9", size: "Mini", description: "Escalope, Thon, Jambon" },
+    { name: "Moy", price: "14", size: "Moyenne", description: "Escalope, Thon, Jambon" },
+    { name: "Maxi", price: "18", size: "Maxi", description: "Escalope, Thon, Jambon" }
+];
+
+let currentPizzaTurqueMode = null;
+
+function showPizzaTurqueModal(mode) {
+    currentPizzaTurqueMode = mode;
+    const modal = document.getElementById('pizzaTurqueModal');
+    const optionsContainer = document.getElementById('pizzaTurqueOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = pizzaTurqueOptionsList.map(opt => `
+        <div class="pizza-option-btn" onclick="selectPizzaTurqueOption('${opt.name}', '${opt.price}', '${opt.size}', '${opt.description.replace(/'/g, "\\'")}')">
+            <div style="flex: 1;">
+                <div class="pizza-option-name">${opt.name} (${opt.size})</div>
+                <div class="pizza-option-desc">${opt.description}</div>
+            </div>
+            <div class="pizza-option-price">${opt.price} DT</div>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePizzaTurqueModal() {
+    const modal = document.getElementById('pizzaTurqueModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectPizzaTurqueOption(size, price, pizzaSize, description) {
+    closePizzaTurqueModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775836187/pizza_walidplus_bsigk7.png';
+    const restoName = 'WALID PLUS';
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
+    
+    const fullProductName = `Pizza Turque ${size} (${pizzaSize}) - Escalope, Thon, Jambon`;
+    
+    if (currentPizzaTurqueMode === 'cart') {
+        addToCart(fullProductName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `${salutation}, je souhaite commander.\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// ==================== MESSAGE DYNAMIQUE POUR LE DIRECTEUR ====================
+function updateContactDirecteur() {
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
+    
+    let message = `${salutation}, je souhaite commander. Pouvez-vous me confirmer la disponibilité et le prix de livraison ? Merci.`;
+    let whatsappUrl = `https://wa.me/21620382016?text=${encodeURIComponent(message)}`;
+    
+    let btn = document.getElementById('contactDirectBtn');
+    if (btn) {
+        btn.href = whatsappUrl;
+    }
+}
+
 // ==================== INITIALISATION ====================
 document.addEventListener('DOMContentLoaded', function() {
+    updateContactDirecteur();
+    
     document.querySelectorAll('.category-item').forEach(item => {
         item.addEventListener('click', () => {
             filterByCategory(item.dataset.category);
