@@ -807,16 +807,44 @@
                 </div>
             </div>
         </section>
-
-        <div class="contact-direct">
-            <h3>
-                <img src="https://flagcdn.com/w20/tn.png" alt="Tunisie" style="width: 24px; vertical-align: middle; margin-left: 8px;">
-                قوّة تتحرّك في تونس
-            </h3>
-            <p>Contactez directement notre équipe pour vos commandes et toutes les informations nécessaires.</p>
-            <p>✓ Frais de livraison ✓ Délais ✓ Disponibilité ✓ Commandes spéciales</p>
-            <a href="https://wa.me/21620382016?text=Bonjour%2C%20je%20souhaite%20commander.%20Pouvez-vous%20me%20confirmer%20la%20disponibilit%C3%A9%20et%20le%20prix%20de%20livraison%20%3F%20Merci." class="btn-whatsapp-large" target="_blank"><i class="fab fa-whatsapp"></i> Pour plus d'informations (Directeur)</a>
+<!-- ========== RESTAURANT WALID PLUS ========== -->
+<section class="restaurant-section" id="resto7">
+    <div class="restaurant-header">
+        <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775833216/logo_walidplus_dkisfl.png'); background-size: cover; background-position: center 75%; background-repeat: no-repeat; background-color: white;"></div>
+        <div>
+            <h2>WALID PLUS</h2>
+            <p>📍 Tunis • Beb Swiqa • Ouvert 11h-01h</p>
         </div>
+    </div>
+    
+    <div class="menu-grid">
+        <!-- Pizza Turque / Pizza Turk -->
+        <div class="plat-card" data-category="pizza">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775836187/pizza_walidplus_bsigk7.png'); background-position: center 80%; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Pizza Turque</h3>
+                <p class="plat-description">Escalope, Thon, Jambon - Une pizza généreuse aux saveurs méditerranéennes</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 9 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showPizzaTurqueModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showPizzaTurqueModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="contact-direct">
+    <h3>
+        <img src="https://flagcdn.com/w20/tn.png" alt="Tunisie" style="width: 24px; vertical-align: middle; margin-left: 8px;">
+        قوّة تتحرّك في تونس
+    </h3>
+    <p>Contactez directement notre équipe pour vos commandes et toutes les informations nécessaires.</p>
+    <p>✓ Frais de livraison ✓ Délais ✓ Disponibilité ✓ Commandes spéciales</p>
+    <a href="#" class="btn-whatsapp-large" id="contactDirectBtn"><i class="fab fa-whatsapp"></i> Pour plus d'informations (Directeur)</a>
+</div>
     </div>
 
     <!-- MODALS -->
@@ -990,6 +1018,13 @@
     <div class="modal-content" style="max-width: 500px;">
         <div class="modal-header"><h3>Choisissez votre taille</h3><span class="close-modal" onclick="closePizzaChtarChtarModal()">&times;</span></div>
         <div class="modal-body"><p>Veuillez sélectionner la taille de votre Pizza demi demi  :</p><div id="pizzaChtarChtarOptions" class="pizza-options-grid"></div></div>
+    </div>
+</div>
+<!-- Pizza Turque Modal (WALID PLUS) -->
+<div id="pizzaTurqueModal" class="choice-modal">
+    <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header"><h3>Choisissez votre taille</h3><span class="close-modal" onclick="closePizzaTurqueModal()">&times;</span></div>
+        <div class="modal-body"><p>Veuillez sélectionner la taille de votre Pizza Turque :</p><div id="pizzaTurqueOptions" class="pizza-options-grid"></div></div>
     </div>
 </div>
 
