@@ -509,81 +509,82 @@ function checkoutCart() {
     toggleCart();
 }
 
-// ==================== FONCTION GET PRODUCT IMAGE ====================
+// ==================== FONCTION GET PRODUCT IMAGE (CHEMINS LOCAUX) ====================
 function getProductImage(productName) {
-    // ========== KING STREET (spécifique avant générique) ==========
-    if (productName.includes('Tacos Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775603631/tacos_mahboul_nw8shd.png';
-    if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
-    if (productName.includes('Makloub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
-    if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
-    if (productName.includes('Pizza Demi Fromage / Demi Poulet à la Crème')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
+    // ========== KING STREET ==========
+    if (productName.includes('Tacos Mahboul')) return 'images/tacos_mahboul.png';
+    if (productName.includes('Makloub Mahboul')) return 'images/makloub_mahboul.png';
+    if (productName.includes('Makloub')) return 'images/makloub_king_street.png';
+    if (productName.includes('Pizza Triplex')) return 'images/pizza_triplex.png';
+    if (productName.includes('Pizza Demi Fromage / Demi Poulet à la Crème')) return 'images/pizza_chtar_chtar.png';
     
     // ========== AL OSTEDH ==========
-    if (productName.includes('Burger Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_crispy_zu7tsq.png';
-    if (productName.includes('Burger Classique')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788838/alostedh_zw5zjf.png';
-    if (productName.includes('Burger Double Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_double_beef_hn1rtw.png';
-    if (productName.includes('Burger Super Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788846/burger_super_cripsy_w5238p.png';
-    if (productName.includes('Cheddar cheese') && productName.includes('21,9')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788843/burger_mushroom_beef_rmrvxl.png';
-    if (productName.includes('Cheddar cheese') && productName.includes('23')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788938/truffe_burger_beef_xqzvro.png';
-    if (productName.includes('Pizza 4 choix')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
-    if (productName.includes('Pizza Thon / Pepperoni')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
-    if (productName.includes('Pizza Jambon fumé & crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
-    if (productName.includes('Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152509/tacos_alostedhhh_l5qajp.png';
-    if (productName.includes('Spécial escalope')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774131090/Sadwich_escalope_lahxch.png';
+    if (productName.includes('Burger Crispy')) return 'images/burger_crispy.PNG';
+    if (productName.includes('Burger Classique')) return 'images/burger_classique.png';
+    if (productName.includes('Burger Double Beef')) return 'images/burger_double_beef.PNG';
+    if (productName.includes('Burger Super Crispy')) return 'images/burger_super_crispy.PNG';
+    if (productName.includes('Cheddar cheese') && productName.includes('21,9')) return 'images/burger_mushroom_beef.PNG';
+    if (productName.includes('Cheddar cheese') && productName.includes('23')) return 'images/truffle_burger_beef.png';
+    if (productName.includes('Pizza 4 choix')) return 'images/pizza_4choix_bigmax.PNG';
+    if (productName.includes('Pizza Thon / Pepperoni')) return 'images/pizza_bigmax_thon_pepperoni.PNG';
+    if (productName.includes('Pizza Jambon fumé & crispy')) return 'images/pizza_big_jambon_fume_crispy.png';
+    if (productName.includes('Tacos')) return 'images/tacos_alostedh.png';
+    if (productName.includes('Spécial escalope')) return 'images/sandwich_escalope.PNG';
     
     // ========== CHICK'IN ==========
-    if (productName.includes('Frenchy Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png';
-    if (productName.includes('Cheesy Burrito')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png';
-    if (productName.includes('Burger Maple Sriracha')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774095344/Burger_Maple_sriracha_hcj6qu.png';
-    if (productName.includes('Burger Trufflow')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774098227/Burger_Trufflow_Truffe_et_champignon_j9ddz4.png';
-    if (productName.includes('Box Original')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774099274/Box_original_b1mgt2.png';
-    if (productName.includes('Box Canada')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129079/Box_canada_z91li8.png';
-    if (productName.includes('Box The crisper')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129687/Box_the_crisper_xwx58h.png';
-    if (productName.includes('Box Tex-Mex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129851/Box_tex_mex_dkiwne.png';
-    if (productName.includes('OG sub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129969/OG_SUB_d08hft.png';
-    if (productName.includes('Crispy Coleslaw')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775654542/Crispy_Coleslaw_chickin_d4kmmc.png';
-    if (productName.includes('Crispy César')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775655787/Crispy_c%C3%A9sar_chickin_nhj1wh.png';
-    if (productName.includes('Super Power Bowl')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775655800/Super_power_bowl_chickin_f7kq2r.png';
+    if (productName.includes('Frenchy Tacos')) return 'images/frenshy_tacos.PNG';
+    if (productName.includes('Cheesy Burrito')) return 'images/cheesy_burrito.PNG';
+    if (productName.includes('Burger Maple Sriracha')) return 'images/burger_maple_sriracha.PNG';
+    if (productName.includes('Burger Trufflow')) return 'images/burger_trufflow.png';
+    if (productName.includes('Box Original')) return 'images/box_original.PNG';
+    if (productName.includes('Box Canada')) return 'images/box_canada.PNG';
+    if (productName.includes('Box The crisper')) return 'images/box_the_crisper.PNG';
+    if (productName.includes('Box Tex-Mex')) return 'images/box_tex_mex.PNG';
+    if (productName.includes('OG sub')) return 'images/og_sub.PNG';
+    if (productName.includes('Crispy Coleslaw')) return 'images/crispy_coleslaw.png';
+    if (productName.includes('Crispy César')) return 'images/crispy_cesar.png';
+    if (productName.includes('Super Power Bowl')) return 'images/super_power_bowl.png';
     
     // ========== ZAKIA ==========
     if (productName === 'Pasta escalope' || productName === 'Pasta Merguez' || productName === 'Pasta fruit de mer') {
-        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
+        return 'images/pasta_zakia.png';
     }
     if (productName === 'Ojja escalope' || productName === 'Ojja merguez' || productName === 'Ojja Merguez' || productName === 'Ojja fruit de mer') {
-        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
+        return 'images/ojja_zakia.png';
     }
     if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier') || 
         productName.includes('Tastira') || productName.includes('Makrouna') || productName.includes('Loubia')) {
-        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
+        return 'images/poulet_zakia.png';
     }
     
     // ========== LA CASA DE MAMA ==========
-    if (productName.includes('4 Feux')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png';
-    if (productName.includes('Pizza Thon') && productName.includes('La Casa')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
-    if (productName.includes('Pizza Exacatory')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
-    if (productName.includes('Pizza Mitro')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png';
-    if (productName.includes('Pizza 4 Fromage')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png';
-    if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png';
-    if (productName.includes('Anchilada')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png';
-    if (productName.includes('Pasta') && productName.includes('Alfredo')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775303674/pasta_lacasademama_fsbqh1.png';
+    if (productName.includes('4 Feux')) return 'images/4_feux.png';
+    if (productName.includes('Pizza Thon') && productName.includes('La Casa')) return 'images/pizza_resto4.png';
+    if (productName.includes('Pizza Exacatory')) return 'images/pizza_exacatory.png';
+    if (productName.includes('Pizza Mitro')) return 'images/pizza_mitro.png';
+    if (productName.includes('Pizza 4 Fromage')) return 'images/pizza_4_fromage.png';
+    if (productName.includes('Baguette Farcie')) return 'images/baguette_farcie.png';
+    if (productName.includes('Anchilada')) return 'images/anchilada.png';
+    if (productName.includes('Pasta') && productName.includes('Alfredo')) return 'images/pasta_lacasademama.png';
     if (productName.includes('Makloub') && (productName.includes('Escalope') || productName.includes('Shawarma') || productName.includes('Cordon') || productName.includes('Thon') || productName.includes('Jambon'))) {
-        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png';
+        return 'images/makloub_jdid.png';
     }
-    if (productName.includes('Pain Corné')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775306409/pain_corn%C3%A9_td0mhp.png';
+    if (productName.includes('Pain Corné')) return 'images/pain_corne.png';
     
     // ========== DIDI ==========
-    if (productName.includes('Poulet sec')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
+    if (productName.includes('Poulet sec')) return 'images/poulet_didi.png';
     if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier')) {
-        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
+        return 'images/poulet_didi.png';
     }
     if (productName.includes('Sandwich thon frit') || productName.includes('Sandwich kafteji frit') || 
         productName.includes('Sandwich poulet frit') || productName.includes('Sandwich thon') || 
         productName.includes('Sandwich kafteji') || productName.includes('Sandwich poulet')) {
-        return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
+        return 'images/sandwich_thon_frit_didi.png';
     }
-    if (productName.includes('Shan Tounsi')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152532/shan_tounsi_didi_sohp3n.png';
+    if (productName.includes('Shan Tounsi')) return 'images/shan_tounsi_didi.png';
+    
     // ========== WALID PLUS ==========
-    if (productName.includes('Pizza Turque')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775836187/pizza_walidplus_bsigk7.png';
+    if (productName.includes('Pizza Turque')) return 'images/pizza_walidplus.png';
     
     return '';
 }
@@ -632,7 +633,7 @@ function selectChoice(choice) {
     let salutation = (currentHour >= 3 && currentHour < 18) ? "Bonjour" : "Bonsoir";
     
     if (currentProduct.mode === 'cart') {
-        addToCart(productName, price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', resto);
+        addToCart(productName, price, 'images/pizza_bigmax_thon_pepperoni.PNG', resto);
     } else {
         let message = `${salutation}, je souhaite commander.\n• ${productName} (${resto}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
@@ -675,7 +676,7 @@ function closePizza4ChoixModal() {
 
 function selectPizza4ChoixOption(productName, price, size, description) {
     closePizza4ChoixModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
+    const imageUrl = 'images/pizza_4choix_bigmax.PNG';
     const restoName = 'AL OSTEDH';
     
     let now = getTunisiaTime();
@@ -744,7 +745,7 @@ function closePizzaThonPepperoniTailleModal() {
 
 function selectPizzaThonPepperoniFinal(productName, price, size, description) {
     closePizzaThonPepperoniTailleModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
+    const imageUrl = 'images/pizza_bigmax_thon_pepperoni.PNG';
     const restoName = 'AL OSTEDH';
     const finalProductName = `${productName} (${currentThonPepperoniGarniture})`;
     
@@ -797,7 +798,7 @@ function closePizzaJambonCrispyModal() {
 
 function selectPizzaJambonCrispyOption(productName, price, size, description) {
     closePizzaJambonCrispyModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
+    const imageUrl = 'images/pizza_big_jambon_fume_crispy.png';
     const restoName = 'AL OSTEDH';
     
     let now = getTunisiaTime();
@@ -849,7 +850,7 @@ function closeEscalopeModal() {
 
 function selectEscalopeOption(productName, productPrice) {
     closeEscalopeModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774131090/Sadwich_escalope_lahxch.png';
+    const imageUrl = 'images/sandwich_escalope.PNG';
     const restoName = 'AL OSTEDH';
     
     let now = getTunisiaTime();
@@ -904,7 +905,7 @@ function closeMakloubModal() {
 
 function selectMakloubOption(productName, productPrice, ingredients) {
     closeMakloubModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
+    const imageUrl = 'images/makloub_king_street.png';
     const restoName = 'King Street';
     const fullProductName = `Makloub ${productName}`;
     
@@ -957,7 +958,7 @@ function closePizzaTriplexModal() {
 
 function selectPizzaTriplexOption(size, price, pizzaSize, description) {
     closePizzaTriplexModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
+    const imageUrl = 'images/pizza_triplex.png';
     const restoName = 'King Street';
     const fullProductName = `Pizza Triplex (Double Pâtes) ${size} (${pizzaSize})`;
     
@@ -1010,7 +1011,7 @@ function closePizzaChtarChtarModal() {
 
 function selectPizzaChtarChtarOption(size, price, pizzaSize, description) {
     closePizzaChtarChtarModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775602406/pizza_chtar_chtar_syc2wk.png';
+    const imageUrl = 'images/pizza_chtar_chtar.png';
     const restoName = 'King Street';
     const fullProductName = `Pizza Demi Fromage / Demi Poulet à la Crème ${size} (${pizzaSize})`;
     
@@ -1065,7 +1066,7 @@ function closePizzaThonModal() {
 
 function selectPizzaThonOption(size, price, pizzaSize, description) {
     closePizzaThonModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
+    const imageUrl = 'images/pizza_resto4.png';
     const restoName = 'La Casa De Mama';
     const fullProductName = `Pizza Thon ${size} (${pizzaSize})`;
     
@@ -1118,7 +1119,7 @@ function closePizzaExacatoryModal() {
 
 function selectPizzaExacatoryOption(size, price, pizzaSize, description) {
     closePizzaExacatoryModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
+    const imageUrl = 'images/pizza_exacatory.png';
     const restoName = 'La Casa De Mama';
     const fullProductName = `Pizza Exacatory ${size} (${pizzaSize})`;
     
@@ -1204,7 +1205,7 @@ function confirmerBaguette() {
     
     const productName = `Baguette Farcie ${selectedBaguetteTaille.taille} (${selectedBaguetteViande.viandeName} + Jambon + Fromage)`;
     const productPrice = selectedBaguetteTaille.prix;
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png';
+    const imageUrl = 'images/baguette_farcie.png';
     const restoName = 'La Casa De Mama';
     
     let now = getTunisiaTime();
@@ -1340,7 +1341,7 @@ function confirmerPoulet() {
     
     const productName = `${selectedPouletTaille} - ${selectedPouletAccompagnement}`;
     const price = selectedPouletPrice;
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
+    const imageUrl = 'images/poulet_zakia.png';
     const restoName = 'ZAKIA';
     
     let now = getTunisiaTime();
@@ -1401,7 +1402,7 @@ function closePastaModal() {
 
 function selectPastaOption(productName, price) {
     closePastaModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
+    const imageUrl = 'images/pasta_zakia.png';
     const restoName = 'ZAKIA';
     
     let now = getTunisiaTime();
@@ -1451,7 +1452,7 @@ function closeOjjaModal() {
 
 function selectOjjaOption(productName, price) {
     closeOjjaModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
+    const imageUrl = 'images/ojja_zakia.png';
     const restoName = 'ZAKIA';
     
     let now = getTunisiaTime();
@@ -1501,7 +1502,7 @@ function closeAnchiladaModal() {
 
 function selectAnchiladaOption(productName, price) {
     closeAnchiladaModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png';
+    const imageUrl = 'images/anchilada.png';
     const restoName = 'La Casa De Mama';
     
     let now = getTunisiaTime();
@@ -1556,7 +1557,7 @@ function closePizzaQuatreFromagesModal() {
 function selectPizzaQuatreFromagesOption(size, price, pizzaSize) {
     closePizzaQuatreFromagesModal();
     const productName = `Pizza 4 Fromage ${size} (${pizzaSize})`;
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png';
+    const imageUrl = 'images/pizza_4_fromage.png';
     const restoName = 'La Casa De Mama';
     
     let now = getTunisiaTime();
@@ -1606,7 +1607,7 @@ function closeTacosAlOstedhModal() {
 
 function selectTacosAlOstedhOption(productName, price) {
     closeTacosAlOstedhModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152509/tacos_alostedhhh_l5qajp.png';
+    const imageUrl = 'images/tacos_alostedh.png';
     const restoName = 'AL OSTEDH';
     
     let now = getTunisiaTime();
@@ -1760,7 +1761,7 @@ function confirmerPouletDidi() {
         price = selectedPouletDidiPrice;
     }
     
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
+    const imageUrl = 'images/poulet_didi.png';
     const restoName = 'DIDI';
     
     let now = getTunisiaTime();
@@ -1824,7 +1825,7 @@ function closeSandwichDidiModal() {
 
 function selectSandwichDidiOption(productName, price, description) {
     closeSandwichDidiModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
+    const imageUrl = 'images/sandwich_thon_frit_didi.png';
     const restoName = 'DIDI';
     
     let now = getTunisiaTime();
@@ -1879,7 +1880,7 @@ function closeMakloubLaCasaModal() {
 
 function selectMakloubLaCasaOption(productName, price) {
     closeMakloubLaCasaModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png';
+    const imageUrl = 'images/makloub_jdid.png';
     const restoName = 'La Casa De Mama';
     const fullProductName = `Makloub ${productName}`;
     
@@ -1933,7 +1934,7 @@ function closePastaLaCasaModal() {
 
 function selectPastaLaCasaOption(productName, price, description) {
     closePastaLaCasaModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775303674/pasta_lacasademama_fsbqh1.png';
+    const imageUrl = 'images/pasta_lacasademama.png';
     const restoName = 'La Casa De Mama';
     const fullProductName = `Pasta ${productName}`;
     
@@ -2020,7 +2021,7 @@ function confirmerPainCorne() {
     
     const productName = `Pain Corné ${selectedPainCorneTaille.taille} (${selectedPainCorneViande.viandeName})`;
     const productPrice = selectedPainCorneTaille.prix;
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775306409/pain_corn%C3%A9_td0mhp.png';
+    const imageUrl = 'images/pain_corne.png';
     const restoName = 'La Casa De Mama';
     
     let now = getTunisiaTime();
@@ -2083,7 +2084,7 @@ function closePizzaTurqueModal() {
 
 function selectPizzaTurqueOption(size, price, pizzaSize, description) {
     closePizzaTurqueModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775836187/pizza_walidplus_bsigk7.png';
+    const imageUrl = 'images/pizza_walidplus.png';
     const restoName = 'WALID PLUS';
     
     let now = getTunisiaTime();
